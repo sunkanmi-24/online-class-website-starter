@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { MessageCircle, Mail, Phone } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { instructor } from "@/data/instructor";
 
@@ -7,21 +6,22 @@ export const metadata: Metadata = { title: "Contact", description: "Contact the 
 
 export default function Contact() {
   return (
-    <main className="container py-14 md:py-20">
-      <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">Contact</p>
-      <h1 className="mt-3 text-4xl font-black tracking-tight">Join a class</h1>
-      <p className="mt-4 max-w-2xl leading-7 text-slate-600">Send a message or use the contact placeholders below. Wire the form to a backend before production.</p>
-      <div className="mt-10 grid items-start gap-6 lg:grid-cols-5">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 lg:col-span-2">
-          <h2 className="text-xl font-bold">Direct contact (placeholders)</h2>
-          <ul className="mt-5 space-y-3 text-sm text-slate-600">
-            <li className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3"><MessageCircle size={17} className="text-green-600" aria-hidden /> WhatsApp: {instructor.contact.whatsapp}</li>
-            <li className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3"><Phone size={17} className="text-blue-600" aria-hidden /> Phone: {instructor.contact.phone}</li>
-            <li className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3"><Mail size={17} className="text-slate-600" aria-hidden /> Email: {instructor.contact.email}</li>
+    <main className="container py-20 md:py-28">
+      <p className="text-[11px] font-medium uppercase tracking-[0.28px] text-steel">Contact</p>
+      <h1 className="display-headline mt-4 max-w-3xl text-5xl text-ink-black">Join a class</h1>
+      <p className="mt-4 max-w-2xl font-normal leading-relaxed text-slate">Send a message or use the contact placeholders below. Messages are stored and answered by the instructor.</p>
+      <div className="mt-12 grid items-start gap-px border border-bone bg-bone lg:grid-cols-5">
+        <div className="bg-pure-white p-6 md:p-8 lg:col-span-2">
+          <h2 className="text-xl font-medium tracking-[-0.12px] text-ink-black">Direct contact</h2>
+          <p className="mt-1 text-[11px] uppercase tracking-[0.28px] text-silver">Placeholders</p>
+          <ul className="mt-5 divide-y divide-bone border-y border-bone text-sm font-normal text-slate">
+            <li className="py-3.5"><span className="text-steel">WhatsApp — </span>{instructor.contact.whatsapp}</li>
+            <li className="py-3.5"><span className="text-steel">Phone — </span>{instructor.contact.phone}</li>
+            <li className="py-3.5"><span className="text-steel">Email — </span>{instructor.contact.email}</li>
           </ul>
-          <p className="mt-5 text-xs leading-6 text-slate-400">Add real numbers, email, and social links here. WhatsApp button can link to https://wa.me/&lt;number&gt; once provided.</p>
+          <p className="mt-5 text-[13px] font-normal leading-relaxed text-silver">Add real numbers, email, and social links here before production.</p>
         </div>
-        <div className="lg:col-span-3"><ContactForm /></div>
+        <div className="bg-pure-white lg:col-span-3"><ContactForm /></div>
       </div>
     </main>
   );

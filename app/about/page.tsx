@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CheckCircle2 } from "lucide-react";
 import { instructor } from "@/data/instructor";
 import { CTASection } from "@/components/CTASection";
 
@@ -8,33 +7,33 @@ export const metadata: Metadata = { title: "About", description: "About the inst
 export default function About() {
   return (
     <main>
-      <section className="container py-14 md:py-20">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">About the instructor</p>
-        <h1 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">{instructor.name}</h1>
-        <p className="mt-3 text-lg text-slate-600">{instructor.role}</p>
-        <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
-          <div className="flex aspect-square items-center justify-center rounded-3xl border border-dashed border-slate-300 bg-slate-100 p-8 text-center text-sm font-medium text-slate-400">
+      <section className="container py-20 md:py-28">
+        <p className="text-[11px] font-medium uppercase tracking-[0.28px] text-steel">About the instructor</p>
+        <h1 className="display-headline mt-4 max-w-3xl text-5xl text-ink-black">{instructor.name}</h1>
+        <p className="mt-4 text-base font-normal text-slate">{instructor.role}</p>
+        <div className="mt-14 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="flex aspect-square items-center justify-center border border-dashed border-bone bg-cloud p-8 text-center text-sm font-normal text-silver">
             {instructor.photoAlt}
           </div>
           <div>
-            <h2 className="text-2xl font-bold">Biography</h2>
+            <h2 className="text-2xl font-medium tracking-[-0.24px] text-ink-black">Biography</h2>
             {instructor.bioLong.map((p) => (
-              <p key={p.slice(0, 20)} className="mt-4 leading-8 text-slate-600">{p}</p>
+              <p key={p.slice(0, 20)} className="mt-4 font-normal leading-relaxed text-slate">{p}</p>
             ))}
-            <h2 className="mt-8 text-2xl font-bold">Teaching philosophy</h2>
-            <p className="mt-4 leading-8 text-slate-600">Add teaching philosophy here — how lessons are structured, how students get feedback, and what success looks like.</p>
-            <h2 className="mt-8 text-xl font-bold">Areas of expertise</h2>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {instructor.expertise.map((e) => (
-                <li key={e} className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700">
-                  <CheckCircle2 size={16} className="text-blue-600" aria-hidden /> {e}
+            <h2 className="mt-12 border-t border-bone pt-8 text-2xl font-medium tracking-[-0.24px] text-ink-black">Teaching philosophy</h2>
+            <p className="mt-4 font-normal leading-relaxed text-slate">Add teaching philosophy here — how lessons are structured, how students get feedback, and what success looks like.</p>
+            <h2 className="mt-12 border-t border-bone pt-8 text-xl font-medium tracking-[-0.12px] text-ink-black">Areas of expertise</h2>
+            <ul className="mt-5 divide-y divide-bone border-y border-bone">
+              {instructor.expertise.map((e, i) => (
+                <li key={e} className="flex items-baseline gap-4 py-3.5 text-sm font-normal text-slate">
+                  <span className="text-[11px] text-silver">0{i + 1}</span> {e}
                 </li>
               ))}
             </ul>
-            <h2 className="mt-8 text-xl font-bold">Connect</h2>
-            <ul className="mt-3 space-y-1 text-sm text-slate-600">
+            <h2 className="mt-12 text-xl font-medium tracking-[-0.12px] text-ink-black">Connect</h2>
+            <ul className="mt-3 space-y-1.5 text-sm font-normal text-slate">
               {instructor.socials.map((s) => (
-                <li key={s.label}>{s.label}: {s.note}</li>
+                <li key={s.label}>{s.label}: <span className="text-steel">{s.note}</span></li>
               ))}
             </ul>
           </div>

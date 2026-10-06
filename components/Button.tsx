@@ -4,21 +4,24 @@ import type { ReactNode } from "react";
 type Props = {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "dark" | "whatsapp";
+  variant?: "primary" | "outline" | "ghost";
   className?: string;
 };
 
 export function Button({ href, children, variant = "primary", className = "" }: Props) {
   const styles = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700",
-    secondary: "border border-slate-300 bg-white text-slate-800 hover:border-blue-500 hover:text-blue-700",
-    dark: "bg-slate-950 text-white hover:bg-slate-800",
-    whatsapp: "bg-green-600 text-white hover:bg-green-700",
+    // Primary Dark Button (Filled) — the only filled style in the system
+    primary: "bg-ink-black text-pure-white hover:bg-graphite",
+    // Hairline outline button
+    outline: "border border-bone bg-pure-white text-ink-black hover:bg-cloud",
+    // Ghost Text Link with momentum
+    ghost: "text-ink-black hover:text-slate underline-offset-4 hover:underline",
   }[variant];
+  const shape = variant === "ghost" ? "px-0 py-2" : "rounded-lg px-5 py-2.5";
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${styles} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 text-sm font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-signal ${shape} ${styles} ${className}`}
     >
       {children}
     </Link>
