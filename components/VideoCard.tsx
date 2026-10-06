@@ -1,10 +1,10 @@
 import { Play } from "lucide-react";
 import type { Video } from "@/data/videos";
 
-export function VideoCard({ video }: { video: Video }) {
+export function VideoCard({ video, dark = false }: { video: Video; dark?: boolean }) {
   return (
-    <article className="bg-pure-white">
-      <div className="relative flex aspect-video items-center justify-center bg-carbon">
+    <article className={`rounded p-4 ${dark ? "bg-charcoal-surface" : "bg-pure-white shadow-[rgba(0,0,0,0.1)_0px_2px_4px_0px]"}`}>
+      <div className="relative flex aspect-video items-center justify-center rounded-t bg-studio-black">
         {video.embedUrl ? (
           <iframe
             src={video.embedUrl}
@@ -16,7 +16,7 @@ export function VideoCard({ video }: { video: Video }) {
           />
         ) : (
           <>
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-pure-white text-ink-black" aria-hidden>
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-pure-white text-studio-black" aria-hidden>
               <Play size={20} />
             </span>
             <span className="sr-only">Placeholder — {video.title}</span>
@@ -24,10 +24,9 @@ export function VideoCard({ video }: { video: Video }) {
         )}
       </div>
       <div className="pt-4">
-        <p className="text-[11px] font-medium uppercase tracking-[0.28px] text-steel">{video.category} · {video.date}</p>
-        <h3 className="mt-2 text-xl font-medium leading-snug tracking-[-0.12px] text-ink-black">{video.title}</h3>
-        <p className="mt-2 text-sm font-normal leading-relaxed text-slate">{video.description}</p>
-        <p className="mt-2 text-[11px] tracking-[0.28px] text-silver">Duration: {video.duration}</p>
+        <p className="caps-label text-ash-mid">{video.category} · {video.date}</p>
+        <h3 className={`mt-2 text-xl font-bold leading-snug ${dark ? "text-pure-white" : "text-deep-ink"}`}>{video.title}</h3>
+        <p className={`mt-2 text-sm font-normal leading-relaxed ${dark ? "text-pure-white/70" : "text-deep-ink/70"}`}>{video.description}</p>
       </div>
     </article>
   );

@@ -9,26 +9,30 @@ export default async function Classes() {
   const { data: classes, live } = await getCourses();
   return (
     <main>
-      <section className="container py-20 md:py-28">
-        <p className="text-[11px] font-medium uppercase tracking-[0.28px] text-steel">Classes</p>
-        <h1 className="display-headline mt-4 max-w-3xl text-5xl text-ink-black">Learn with structured classes</h1>
-        <p className="mt-4 max-w-2xl font-normal leading-relaxed text-slate">
-          {live ? "Live catalogue from the database." : "Placeholder catalogue — connect Supabase and publish courses to go live."}
-        </p>
+      <section className="bg-studio-black py-16 md:py-24">
+        <div className="container">
+          <p className="caps-label text-ash-mid">Classes</p>
+          <h1 className="poster-headline mt-4 max-w-3xl text-5xl text-pure-white">Learn with structured classes</h1>
+          <p className="mt-4 max-w-2xl font-normal leading-relaxed text-pure-white/70">
+            {live ? "Live catalogue from the database." : "Placeholder catalogue — connect Supabase and publish courses to go live."}
+          </p>
+        </div>
+      </section>
+      <section className="container py-16 md:py-24">
         {classes.length === 0 ? (
-          <p role="status" className="mt-12 border border-bone bg-pure-white p-8 font-normal text-slate">No classes published yet. Check back soon.</p>
+          <p role="status" className="rounded bg-pure-white p-8 font-normal text-deep-ink/70 shadow-[rgba(0,0,0,0.1)_0px_2px_4px_0px]">No classes published yet. Check back soon.</p>
         ) : (
-          <div className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {classes.map((c) => <ClassCard key={c.slug} course={c} />)}
           </div>
         )}
-        <div className="mt-16 border-t border-bone pt-10">
-          <h2 className="text-2xl font-medium tracking-[-0.24px] text-ink-black">Full descriptions</h2>
+        <div className="mt-16">
+          <h2 className="text-[28px] font-bold text-deep-ink">Full descriptions</h2>
           {classes.map((c) => (
-            <details key={c.slug} className="mt-4 border border-bone px-5 py-4">
-              <summary className="cursor-pointer text-sm font-medium text-ink-black">{c.title}</summary>
-              <p className="mt-2 text-sm font-normal leading-relaxed text-slate">{c.fullDescription}</p>
-              <p className="mt-2 text-[11px] tracking-[0.28px] text-silver">Level: {c.level} · {c.duration} · {c.format} · {c.price}</p>
+            <details key={c.slug} className="mt-3 rounded border border-fog-border bg-pure-white px-5 py-4">
+              <summary className="cursor-pointer text-sm font-semibold text-deep-ink">{c.title}</summary>
+              <p className="mt-2 text-sm font-normal leading-relaxed text-deep-ink/70">{c.fullDescription}</p>
+              <p className="caps-label mt-2 text-ash-mid">Level: {c.level} · {c.duration} · {c.format} · {c.price}</p>
             </details>
           ))}
         </div>

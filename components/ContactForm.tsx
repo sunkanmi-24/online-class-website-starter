@@ -32,49 +32,52 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div role="status" className="border border-bone bg-pure-white p-8">
-        <h2 className="text-xl font-medium text-ink-black">Message received</h2>
-        <p className="mt-2 font-normal leading-relaxed text-slate">
+      <div role="status" className="rounded bg-pure-white p-8 shadow-[rgba(0,0,0,0.1)_0px_2px_4px_0px]">
+        <h2 className="text-xl font-bold text-deep-ink">Message received</h2>
+        <p className="mt-2 font-normal leading-relaxed text-deep-ink/70">
           Thank you — the instructor will get back to you soon.
         </p>
       </div>
     );
   }
 
+  const inputCls = "w-full rounded border border-fog-border bg-pure-white p-3 text-sm font-normal placeholder:text-ash-mid focus:border-deep-ink focus:outline-none";
+  const labelCls = "mb-1.5 block text-sm font-medium text-deep-ink";
+
   return (
-    <form onSubmit={handleSubmit} className="border border-bone bg-pure-white p-6 md:p-8" aria-label="Contact form">
-      <h2 className="text-xl font-medium tracking-[-0.12px] text-ink-black">Send a message</h2>
+    <form onSubmit={handleSubmit} className="rounded bg-pure-white p-6 shadow-[rgba(0,0,0,0.1)_0px_2px_4px_0px] md:p-8" aria-label="Contact form">
+      <h2 className="text-xl font-bold text-deep-ink">Send a message</h2>
       <div className="mt-5 grid gap-4">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-ink-black">Name</label>
-          <input id="name" name="name" required autoComplete="name" placeholder="Your full name" className="w-full rounded-lg border border-bone bg-pure-white p-3 text-sm font-normal placeholder:text-silver focus:border-ink-black focus:outline-none" />
+          <label htmlFor="name" className={labelCls}>Name</label>
+          <input id="name" name="name" required autoComplete="name" placeholder="Your full name" className={inputCls} />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-ink-black">Email</label>
-            <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" className="w-full rounded-lg border border-bone bg-pure-white p-3 text-sm font-normal placeholder:text-silver focus:border-ink-black focus:outline-none" />
+            <label htmlFor="email" className={labelCls}>Email</label>
+            <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" className={inputCls} />
           </div>
           <div>
-            <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-ink-black">Phone / WhatsApp</label>
-            <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Add phone number" className="w-full rounded-lg border border-bone bg-pure-white p-3 text-sm font-normal placeholder:text-silver focus:border-ink-black focus:outline-none" />
+            <label htmlFor="phone" className={labelCls}>Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Add phone number" className={inputCls} />
           </div>
         </div>
         <div>
-          <label htmlFor="interest" className="mb-1.5 block text-sm font-medium text-ink-black">Class interested in</label>
-          <select id="interest" name="interest" className="w-full rounded-lg border border-bone bg-pure-white p-3 text-sm font-normal focus:border-ink-black focus:outline-none">
+          <label htmlFor="interest" className={labelCls}>Class interested in</label>
+          <select id="interest" name="interest" className={inputCls}>
             <option value="">General enquiry</option>
             {classes.map((c) => <option key={c.slug} value={c.slug}>{c.title}</option>)}
           </select>
         </div>
         <div>
-          <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ink-black">Message</label>
-          <textarea id="message" name="message" required rows={5} placeholder="Tell us what you want to learn and your availability." className="w-full rounded-lg border border-bone bg-pure-white p-3 text-sm font-normal placeholder:text-silver focus:border-ink-black focus:outline-none" />
+          <label htmlFor="message" className={labelCls}>Message</label>
+          <textarea id="message" name="message" required rows={5} placeholder="Tell us what you want to learn and your availability." className={inputCls} />
         </div>
-        <button type="submit" disabled={status === "sending"} className="rounded-lg bg-ink-black px-6 py-2.5 text-sm font-medium text-pure-white hover:bg-graphite disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-signal">
+        <button type="submit" disabled={status === "sending"} className="rounded bg-skill-green px-4 py-2 text-sm font-semibold text-deep-ink transition hover:brightness-95 disabled:opacity-60">
           {status === "sending" ? "Sending…" : "Send message"}
         </button>
         {status === "error" && (
-          <p role="alert" className="text-sm font-medium text-ink-black">Could not send your message. Please try again later.</p>
+          <p role="alert" className="text-sm font-medium text-deep-ink">Could not send your message. Please try again later.</p>
         )}
       </div>
     </form>

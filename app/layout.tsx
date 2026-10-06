@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-pure-white text-ink-black antialiased">
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-lg focus:bg-ink-black focus:px-4 focus:py-2 focus:text-pure-white">
+      <body className="min-h-screen bg-pure-white text-deep-ink antialiased">
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded focus:bg-skill-green focus:px-4 focus:py-2 focus:text-deep-ink">
           Skip to content
         </a>
         <Header />

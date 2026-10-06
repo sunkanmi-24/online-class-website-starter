@@ -4,24 +4,25 @@ import type { ReactNode } from "react";
 type Props = {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "outline" | "ghost";
+  variant?: "cta" | "dark" | "outline" | "ghost";
   className?: string;
 };
 
-export function Button({ href, children, variant = "primary", className = "" }: Props) {
+export function Button({ href, children, variant = "cta", className = "" }: Props) {
   const styles = {
-    // Primary Dark Button (Filled) — the only filled style in the system
-    primary: "bg-ink-black text-pure-white hover:bg-graphite",
-    // Hairline outline button
-    outline: "border border-bone bg-pure-white text-ink-black hover:bg-cloud",
-    // Ghost Text Link with momentum
-    ghost: "text-ink-black hover:text-slate underline-offset-4 hover:underline",
+    // Primary CTA — skill green fill, the only green moment
+    cta: "bg-skill-green text-deep-ink hover:brightness-95",
+    // Dark fill for use on white sections
+    dark: "bg-studio-black text-pure-white hover:bg-charcoal-surface",
+    // White outline for use on black sections
+    outline: "border border-graphite-stroke bg-pure-white text-deep-ink hover:bg-pure-white/90",
+    // Ghost text link
+    ghost: "text-pure-white underline-offset-4 hover:underline",
   }[variant];
-  const shape = variant === "ghost" ? "px-0 py-2" : "rounded-lg px-5 py-2.5";
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 text-sm font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-signal ${shape} ${styles} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded px-5 py-2.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-skill-green ${styles} ${className}`}
     >
       {children}
     </Link>

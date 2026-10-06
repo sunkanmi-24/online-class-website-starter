@@ -31,16 +31,16 @@ export default function LoginPage() {
 
   return (
     <main className="container max-w-md py-20">
-      <p className="text-[11px] font-medium uppercase tracking-[0.28px] text-steel">Admin</p>
-      <h1 className="display-headline mt-4 text-4xl text-ink-black">Sign in</h1>
-      <p className="mt-3 text-sm font-normal text-slate">Create the admin user in Supabase → Authentication → Users, then sign in here.</p>
-      <form onSubmit={handleSubmit} className="mt-8 border border-bone bg-pure-white p-6">
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-ink-black">Email</label>
-        <input id="email" name="email" type="email" required autoComplete="email" className="w-full rounded-lg border border-bone p-3 text-sm font-normal placeholder:text-silver focus:border-ink-black focus:outline-none" />
-        <label htmlFor="password" className="mb-1.5 mt-4 block text-sm font-medium text-ink-black">Password</label>
-        <input id="password" name="password" type="password" required autoComplete="current-password" className="w-full rounded-lg border border-bone p-3 text-sm font-normal placeholder:text-silver focus:border-ink-black focus:outline-none" />
-        {error && <p role="alert" className="mt-3 text-sm font-medium text-ink-black">{error}</p>}
-        <button type="submit" disabled={loading} className="mt-5 w-full rounded-lg bg-ink-black px-6 py-2.5 text-sm font-medium text-pure-white hover:bg-graphite disabled:opacity-60">
+      <p className="caps-label text-ash-mid">Admin</p>
+      <h1 className="poster-headline mt-4 text-4xl text-deep-ink">Sign in</h1>
+      <p className="mt-3 text-sm font-normal text-deep-ink/70">Create the admin user in Supabase → Authentication → Users, then sign in here.</p>
+      <form onSubmit={handleSubmit} className="mt-8 rounded bg-pure-white p-6 shadow-[rgba(0,0,0,0.1)_0px_2px_4px_0px]">
+        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-deep-ink">Email</label>
+        <input id="email" name="email" type="email" required autoComplete="email" className="w-full rounded border border-fog-border p-3 text-sm font-normal placeholder:text-ash-mid focus:border-deep-ink focus:outline-none" />
+        <label htmlFor="password" className="mb-1.5 mt-4 block text-sm font-medium text-deep-ink">Password</label>
+        <input id="password" name="password" type="password" required autoComplete="current-password" className="w-full rounded border border-fog-border p-3 text-sm font-normal placeholder:text-ash-mid focus:border-deep-ink focus:outline-none" />
+        {error && <p role="alert" className="mt-3 text-sm font-medium text-deep-ink">{error}</p>}
+        <button type="submit" disabled={loading} className="mt-5 w-full rounded bg-skill-green px-4 py-2 text-sm font-semibold text-deep-ink transition hover:brightness-95 disabled:opacity-60">
           {loading ? "Signing in…" : "Sign in"}
         </button>
       </form>
