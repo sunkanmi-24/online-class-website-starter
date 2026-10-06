@@ -33,6 +33,7 @@ const FIELDS: Record<Tab, { name: string; label: string; wide?: boolean; require
     { name: "schedule", label: "Schedule" },
     { name: "price", label: "Price" },
     { name: "thumbnail_label", label: "Thumbnail label" },
+    { name: "thumbnail_url", label: "Thumbnail image URL", wide: true, hint: "https://… image link" },
   ],
   videos: [
     { name: "title", label: "Title", wide: true, required: true },

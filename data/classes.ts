@@ -12,6 +12,8 @@ export interface Course {
   schedule: string;
   price: string;
   thumbnailLabel: string;
+  /** Image URL shown on the class card — replace with real class artwork. */
+  thumbnailUrl: string;
 }
 
 export const classes: Course[] = [
@@ -26,7 +28,8 @@ export const classes: Course[] = [
     format: "Live online",
     schedule: "Add schedule (e.g. sample: Mon & Wed)",
     price: "Add price",
-    thumbnailLabel: "Add class thumbnail",
+    thumbnailLabel: "Sample thumbnail — replace with real class artwork",
+    thumbnailUrl: "https://picsum.photos/seed/online-class-foundations/800/450",
   },
   {
     slug: "intermediate-class",
@@ -39,7 +42,8 @@ export const classes: Course[] = [
     format: "Live online",
     schedule: "Add schedule",
     price: "Add price",
-    thumbnailLabel: "Add class thumbnail",
+    thumbnailLabel: "Sample thumbnail — replace with real class artwork",
+    thumbnailUrl: "https://picsum.photos/seed/online-class-intermediate/800/450",
   },
   {
     slug: "practical-workshop",
@@ -52,6 +56,7 @@ export const classes: Course[] = [
     format: "Workshop",
     schedule: "Add schedule",
     price: "Add price",
-    thumbnailLabel: "Add class thumbnail",
+    thumbnailLabel: "Sample thumbnail — replace with real class artwork",
+    thumbnailUrl: "https://picsum.photos/seed/online-class-workshop/800/450",
   },
 ];

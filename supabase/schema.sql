@@ -14,6 +14,7 @@ create table if not exists courses (
   schedule text default '',
   price text default '',
   thumbnail_label text default '',
+  thumbnail_url text default '',
   published boolean default true,
   created_at timestamptz default now()
 );

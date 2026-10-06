@@ -21,6 +21,7 @@ export async function getCourses(): Promise<{ data: Course[]; live: boolean }> {
         duration: r.duration ?? "", format: r.format ?? "Live online",
         schedule: r.schedule ?? "", price: r.price ?? "",
         thumbnailLabel: r.thumbnail_label ?? "",
+        thumbnailUrl: r.thumbnail_url ?? "",
       })) as Course[],
     };
   } catch {

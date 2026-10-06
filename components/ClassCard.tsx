@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Course } from "@/data/classes";
@@ -9,8 +10,20 @@ export function ClassCard({ course, dark = false }: { course: Course; dark?: boo
         dark ? "bg-charcoal-surface" : "bg-pure-white shadow-[rgba(0,0,0,0.1)_0px_2px_4px_0px]"
       }`}
     >
-      <div className="flex aspect-[16/9] items-center justify-center rounded-t bg-studio-black p-6 text-center text-sm font-normal text-pure-white/50">
-        {course.thumbnailLabel}
+      <div className="relative aspect-[16/9] overflow-hidden rounded-t bg-studio-black">
+        {course.thumbnailUrl ? (
+          <Image
+            src={course.thumbnailUrl}
+            alt=""
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center p-6 text-center text-sm font-normal text-pure-white/50">
+            {course.thumbnailLabel}
+          </div>
+        )}
       </div>
       <div className="flex flex-1 flex-col pt-4">
         <p className="caps-label text-ash-mid">{course.level} · {course.format}</p>
