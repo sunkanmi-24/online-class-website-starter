@@ -10,9 +10,9 @@ export interface Video {
 }
 
 export const videos: Video[] = [
-  { slug: "intro", title: "Video Title — Introduction to the Subject", description: "Add video description here.", category: "Intro", date: "Sample date", duration: "Add duration", embedUrl: "" },
-  { slug: "practical", title: "Video Title — A Practical Lesson", description: "Add video description here.", category: "Lesson", date: "Sample date", duration: "Add duration", embedUrl: "" },
-  { slug: "mistakes", title: "Video Title — Common Mistakes to Avoid", description: "Add video description here.", category: "Tips", date: "Sample date", duration: "Add duration", embedUrl: "" },
+  { slug: "intro", title: "Sample: 3 Tips on How to Study Effectively (TED-Ed)", description: "Sample video — replace with the instructor's own lesson. Explores how the brain learns and stores information.", category: "Study skills", date: "Sample entry", duration: "5:09", embedUrl: "https://www.youtube.com/embed/TjPFZaMe2yw" },
+  { slug: "practical", title: "Sample: How to Practice Effectively (TED-Ed)", description: "Sample video — replace with the instructor's own lesson. What practice does to the brain and how to get the most from it.", category: "Practice", date: "Sample entry", duration: "4:49", embedUrl: "https://www.youtube.com/embed/f2O6mQkFiiw" },
+  { slug: "mistakes", title: "Sample: Inside the Mind of a Master Procrastinator (TED)", description: "Sample video — replace with the instructor's own lesson. Tim Urban on procrastination and deadlines.", category: "Motivation", date: "Sample entry", duration: "14:03", embedUrl: "https://www.youtube.com/embed/arj7oStGLkU" },
   { slug: "highlight", title: "Video Title — Live Class Highlight", description: "Add video description here.", category: "Live", date: "Sample date", duration: "Add duration", embedUrl: "" },
   { slug: "qa", title: "Video Title — Student Q&A", description: "Add video description here.", category: "Q&A", date: "Sample date", duration: "Add duration", embedUrl: "" },
   { slug: "latest", title: "Video Title — Latest Teaching Session", description: "Add video description here.", category: "Lesson", date: "Sample date", duration: "Add duration", embedUrl: "" },
